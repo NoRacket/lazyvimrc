@@ -14,7 +14,7 @@ return {
         "jsdoc",
         "bash",
         "python",
-        "haskell",
+        -- "haskell",
         "java",
         "scala",
         "markdown",

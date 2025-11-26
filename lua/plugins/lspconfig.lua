@@ -29,7 +29,7 @@ return {
                 "lua_ls",
                 "rust_analyzer",
 				"jdtls",
-				"hls",
+				-- "hls",
                 -- "tsserver",
             },
 			automatic_installation = true,
