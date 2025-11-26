@@ -25,6 +25,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set({ "n", "v" }, "<leader>c", [["_c]])
 vim.keymap.set({ "n", "v" }, "<leader>D", [["_D]])
 vim.keymap.set({ "n", "v" }, "<leader>C", [["_C]])
+vim.keymap.set({ "n", "v" }, "<leader>x", [["_x]])
 
 -- This is going to get me cancelled
 -- vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -46,15 +47,25 @@ vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")             -- walk through \
 vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")             -- error log
 
 -- spell checking
-vim.keymap.set("n", "<F6>", "<cmd>set spell<CR>")
-vim.keymap.set("n", "<leader><F6>", "<cmd>set nospell<CR>")
+local spellIsOn = false
+vim.keymap.set("n", "<F6>", function ()
+    if spellIsOn then
+        vim.cmd("set nospell")
+        spellIsOn = false
+    else
+        vim.cmd("set spell")
+        spellIsOn = true
+    end
+end)
+-- vim.keymap.set("n", "<F6>", "<cmd>set spell<CR>")
+-- vim.keymap.set("n", "<leader><F6>", "<cmd>set nospell<CR>")
 vim.keymap.set("n", "<leader>j", "]szz")
 vim.keymap.set("n", "<leader>k", "[szz")
 
 vim.keymap.set("n", "<leader>si", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left><Left>]])
 vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>sh", [[:s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>so", function()
     vim.cmd("so")

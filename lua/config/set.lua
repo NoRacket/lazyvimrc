@@ -41,3 +41,4 @@ vim.opt.list = true
 vim.opt.listchars = "tab:» ,trail:°,nbsp:⊕,lead:·"
 
 vim.opt.spelllang = "de"
+vim.opt.spell = false
