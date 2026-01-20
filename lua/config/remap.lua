@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>fm", vim.cmd.Ex)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "J", "mzJ`z")
+-- vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>M")
 vim.keymap.set("n", "<C-u>", "<C-u>M")
 vim.keymap.set("n", "<C-f>", "<C-f>M")
@@ -55,8 +55,8 @@ vim.keymap.set("n", "<leader>o", function ()
 end)
 -- vim.keymap.set("n", "<leader>o", "<cmd>copen<CR><C-w><C-w>") -- open the error log
 -- vim.keymap.set("n", "<leader>O", "<cmd>cclose<CR>")          -- close the error log
-vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>zz")             -- walk through \
-vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>zz")             -- error log
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")             -- walk through \
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")             -- error log
 
 -- spell checking
 local spellIsOn = false
@@ -89,9 +89,10 @@ vim.keymap.set("n", "<leader>bn", vim.cmd.bn)
 vim.keymap.set("n", "<leader>bp", vim.cmd.bp)
 vim.keymap.set("n", "<leader>bd", vim.cmd.bd)
 vim.keymap.set("n", "<leader>bb", ":e %:h/")
+vim.keymap.set("n", "<C-^>", "<C-~>")
 
 -- Expanding braces and newline inserting
-vim.keymap.set("i", "{<Cr>", "{<Cr>}<Esc>O")
+-- vim.keymap.set("i", "{<Cr>", "{<Cr>}<Esc>O")
 
 vim.keymap.set("n", "<leader>m", "<cmd>make %<CR>")
 -- vim.keymap.set("n", "<leader>m", "<cmd>!mvn compile<CR>")
@@ -110,11 +111,13 @@ vim.keymap.set("n", "<C-w><C-s>", vim.cmd.vsplit)
 vim.keymap.set("n", "<leader>rpp", "<cmd>e ~/.config/nvim/lua/config/remap.lua<CR>")
 vim.keymap.set("n", "<leader>rpc", "<cmd>e ~/.config/nvim/lua/config/set.lua<CR>")
 vim.keymap.set("n", "<leader>rps", "<cmd>e ~/.config/nvim/lua/plugins/luasnip.lua<CR>")
+-- vim.keymap.set("n", "<leader>rps", "<cmd>e ~/dev/luasnippets/snippets.lua<CR>")
+vim.keymap.set("n", "<leader>rr", "<cmd>e ~/notes.md<CR>")
 
 
 -- reload luasnip
--- vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/snippets/snippets.lua<CR>")
-vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/plugins/luasnip.lua<CR>")
+-- vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/dev/luasnippets/snippets.lua<CR>")
+vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/plugins/snippets<CR>")
 
 -- For LaTeX TODO: make only usable in tex-Files
 -- vim.keymap.set("i", "__", "_{")
@@ -124,8 +127,15 @@ vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "kj", "<Esc>")
 
 
-vim.keymap.set("i", "<C-f>", "<right>")
-vim.keymap.set("i", "<C-b>", "<left>")
-vim.keymap.set("i", "<C-p>", "<up>")
-vim.keymap.set("i", "<C-n>", "<down>")
+vim.keymap.set("i", "<C-l>", "<right>")
+vim.keymap.set("i", "<C-h>", "<left>")
+-- vim.keymap.set("i", "<C-f>", "<right>")
+-- vim.keymap.set("i", "<C-b>", "<left>")
+-- vim.keymap.set("i", "<C-p>", "<up>")
+-- vim.keymap.set("i", "<C-n>", "<down>")
 vim.keymap.set("n", "<C-CR>", "o<Esc>")
+vim.keymap.set("i", "<C-CR>", "<Esc>o")
+
+
+-- open link in browser
+vim.keymap.set("n", "gx", [[:silent !open <C-r><C-a> && i3-msg workspace 1 <CR>]])

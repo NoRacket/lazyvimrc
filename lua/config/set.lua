@@ -21,7 +21,7 @@ vim.opt.undofile = true
 vim.opt.signcolumn = "yes"
 vim.opt.autowrite = true
 
-vim.opt.hlsearch = true
+vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -38,7 +38,7 @@ vim.opt.foldenable = false
 
 vim.opt.splitright = true
 
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
 
 vim.opt.list = true
 vim.opt.listchars = {
