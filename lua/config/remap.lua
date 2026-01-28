@@ -92,7 +92,7 @@ vim.keymap.set("n", "<leader>bb", ":e %:h/")
 vim.keymap.set("n", "<C-^>", "<C-~>")
 
 -- Expanding braces and newline inserting
--- vim.keymap.set("i", "{<Cr>", "{<Cr>}<Esc>O")
+vim.keymap.set("i", "{<Cr>", "{<Cr>}<Esc>O")
 
 vim.keymap.set("n", "<leader>m", "<cmd>make %<CR>")
 -- vim.keymap.set("n", "<leader>m", "<cmd>!mvn compile<CR>")
@@ -110,22 +110,22 @@ vim.keymap.set("n", "<C-w><C-s>", vim.cmd.vsplit)
 -- easier to configure neovim
 vim.keymap.set("n", "<leader>rpp", "<cmd>e ~/.config/nvim/lua/config/remap.lua<CR>")
 vim.keymap.set("n", "<leader>rpc", "<cmd>e ~/.config/nvim/lua/config/set.lua<CR>")
-vim.keymap.set("n", "<leader>rps", "<cmd>e ~/.config/nvim/lua/plugins/luasnip.lua<CR>")
--- vim.keymap.set("n", "<leader>rps", "<cmd>e ~/dev/luasnippets/snippets.lua<CR>")
+vim.keymap.set("n", "<leader>rps", "<cmd>e ~/.config/nvim/lua/plugins/snippets<CR>")
 vim.keymap.set("n", "<leader>rr", "<cmd>e ~/notes.md<CR>")
 
 
 -- reload luasnip
 -- vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/dev/luasnippets/snippets.lua<CR>")
-vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/plugins/snippets<CR>")
+vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/plugins/luasnip.lua<CR>")
 
 -- For LaTeX TODO: make only usable in tex-Files
 -- vim.keymap.set("i", "__", "_{")
 
 -- Exit insert mode
+vim.keymap.set("i", "jj", "j")
+vim.keymap.set("i", "kk", "k")
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "kj", "<Esc>")
-
 
 vim.keymap.set("i", "<C-l>", "<right>")
 vim.keymap.set("i", "<C-h>", "<left>")

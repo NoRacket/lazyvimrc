@@ -86,9 +86,9 @@ return {
 	-- 	return t(text)
 	-- end
 
-	s("fn", {
+	s("fcn", {
 		t "func ",
-		i(1),
+		i(1, "funcName"),
 		t "(",
 		i(2),
 		t ")",
@@ -114,21 +114,28 @@ return {
 	-- 					finish   = i(0),
 	-- 				}
 	-- 			)),
-	-- 			s("err", {
-	-- 				t"if ",
-	-- 				c(1, {
-	-- 					t"err != nil",
-	-- 					sn(nil, {
-	-- 						t"err := ",
-	-- 						i(1),
-	-- 						t"; err != nil"
-	-- 					}),
-	-- 				}),
-	-- 				t{" {", "\treturn "},
-	-- 				i(2),
-	-- 				t{", err","}"},
-	-- 				i(0),
-	-- 			}),
+	s("err", {
+		t "if ",
+		c(1, {
+			t "err != nil",
+			sn(nil, {
+				t "err := ",
+				i(1),
+				t "; err != nil"
+			}),
+		}),
+		t { " {", "\t" },
+		c(2, {
+			t"log.Fatal(err)",
+			sn(nil, {
+				t"return ",
+				i(2),
+				t"err",
+			}),
+		}),
+		t{"", "}"},
+		i(0),
+	}),
 	s("if", {
 		t "if ",
 		i(1, "cond"),
