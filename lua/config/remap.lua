@@ -29,6 +29,7 @@ vim.keymap.set({ "n", "v" }, "<leader>C", [["_C]])
 vim.keymap.set({ "n", "v" }, "<leader>x", [["_x]])
 
 -- This is going to get me cancelled
+-- vim.keymap.set("n", "<C-s>", vim.cmd.w)
 -- vim.keymap.set("i", "<C-c>", "<Esc>")
 -- vim.keymap.set("n", "<C-c>", [["+yy]])
 -- vim.keymap.set("v", "<C-c>", [["+y]])
@@ -69,8 +70,10 @@ vim.keymap.set("n", "<F6>", function ()
 		spellIsOn = true
 	end
 end)
-vim.keymap.set("n", "<leader>j", "]szz")
-vim.keymap.set("n", "<leader>k", "[szz")
+-- vim.keymap.set("n", "<leader>j", "]szz")
+-- vim.keymap.set("n", "<leader>k", "[szz")
+vim.keymap.set("n", "<leader>j", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>k", vim.diagnostic.goto_prev)
 
 vim.keymap.set("n", "<leader>si", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left><Left>]])
 vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -85,16 +88,18 @@ end)
 vim.keymap.set("n", "<Esc>", vim.cmd.nohlsearch)
 
 -- open files the old way (if you konow the name) / run through buffers.
-vim.keymap.set("n", "<leader>bn", vim.cmd.bn)
-vim.keymap.set("n", "<leader>bp", vim.cmd.bp)
-vim.keymap.set("n", "<leader>bd", vim.cmd.bd)
-vim.keymap.set("n", "<leader>bb", ":e %:h/")
+-- vim.keymap.set("n", "<leader>bn", vim.cmd.bn)
+-- vim.keymap.set("n", "<leader>bp", vim.cmd.bp)
+-- vim.keymap.set("n", "<leader>bd", vim.cmd.bd)
+-- vim.keymap.set("n", "<leader>bb", ":e <C-r>=expand('%:h')<CR>/")
+vim.keymap.set("n", "<leader>e", ":e <C-r>=expand('%:h')<CR>/")
 vim.keymap.set("n", "<C-^>", "<C-~>")
 
 -- Expanding braces and newline inserting
 vim.keymap.set("i", "{<Cr>", "{<Cr>}<Esc>O")
 
 vim.keymap.set("n", "<leader>m", "<cmd>make %<CR>")
+vim.keymap.set("n", "<C-b>", vim.cmd.make)
 -- vim.keymap.set("n", "<leader>m", "<cmd>!mvn compile<CR>")
 -- vim.keymap.set("n", "<leader>t", "<cmd>mvn test<CR>")
 vim.keymap.set("i", "<C-Q>", "<C-R>=expand('%:t')<CR>")
@@ -111,6 +116,7 @@ vim.keymap.set("n", "<C-w><C-s>", vim.cmd.vsplit)
 vim.keymap.set("n", "<leader>rpp", "<cmd>e ~/.config/nvim/lua/config/remap.lua<CR>")
 vim.keymap.set("n", "<leader>rpc", "<cmd>e ~/.config/nvim/lua/config/set.lua<CR>")
 vim.keymap.set("n", "<leader>rps", "<cmd>e ~/.config/nvim/lua/plugins/snippets<CR>")
+vim.keymap.set("n", "<leader>rpS", "<cmd>e ~/.config/nvim/lua/plugins/luasnip.lua<CR>")
 vim.keymap.set("n", "<leader>rr", "<cmd>e ~/notes.md<CR>")
 
 
@@ -127,8 +133,8 @@ vim.keymap.set("i", "kk", "k")
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("i", "kj", "<Esc>")
 
-vim.keymap.set("i", "<C-l>", "<right>")
-vim.keymap.set("i", "<C-h>", "<left>")
+-- vim.keymap.set("i", "<C-l>", "<right>")
+-- vim.keymap.set("i", "<C-h>", "<left>")
 -- vim.keymap.set("i", "<C-f>", "<right>")
 -- vim.keymap.set("i", "<C-b>", "<left>")
 -- vim.keymap.set("i", "<C-p>", "<up>")
@@ -139,3 +145,4 @@ vim.keymap.set("i", "<C-CR>", "<Esc>o")
 
 -- open link in browser
 vim.keymap.set("n", "gx", [[:silent !open <C-r><C-a> && i3-msg workspace 1 <CR>]])
+

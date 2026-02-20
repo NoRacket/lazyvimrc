@@ -88,7 +88,7 @@ return {
 
 	s("fcn", {
 		t "func ",
-		i(1, "funcName"),
+		i(1),
 		t "(",
 		i(2),
 		t ")",
