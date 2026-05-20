@@ -33,7 +33,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "81"
+vim.opt.colorcolumn = "80"
 vim.opt.foldenable = true
 vim.opt.foldmethod = "indent"
 
@@ -51,3 +51,10 @@ vim.opt.listchars = {
 
 vim.opt.spelllang = "de"
 vim.opt.spell = false
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "tex", "latex" },
+  callback = function()
+    vim.bo.commentstring = "%% %s"  -- use "%% %s" so a single % becomes "%% %s" in Lua literal
+  end,
+})

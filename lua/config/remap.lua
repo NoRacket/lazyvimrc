@@ -35,9 +35,9 @@ vim.keymap.set({ "n", "v" }, "<leader>x", [["_x]])
 -- vim.keymap.set("v", "<C-c>", [["+y]])
 
 -- surround with Klammern
-vim.keymap.set("v", "(", "c()<Esc>P")
-vim.keymap.set("v", "[", "c[]<Esc>P")
-vim.keymap.set("v", "{", "c{}<Esc>P")
+vim.keymap.set("v", "(", "c()<Esc>Pl%")
+vim.keymap.set("v", "[", "c[]<Esc>Pl%")
+vim.keymap.set("v", "{", "c{}<Esc>Pl%")
 
 vim.keymap.set("n", "Q", "<nop>")
 --vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
@@ -53,6 +53,10 @@ vim.keymap.set("n", "<leader>o", function ()
 		vim.cmd.wincmd("w")
 		showCWindow = true
 	end
+end)
+vim.keymap.set("n", "<leader>O", function ()
+	vim.cmd.cclose()
+	showCWindow = false
 end)
 -- vim.keymap.set("n", "<leader>o", "<cmd>copen<CR><C-w><C-w>") -- open the error log
 -- vim.keymap.set("n", "<leader>O", "<cmd>cclose<CR>")          -- close the error log
